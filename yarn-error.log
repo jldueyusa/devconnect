@@ -1,0 +1,50 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Users/JenniferDuey/.rbenv/shims:/Users/JenniferDuey/.rbenv/shims:/Users/JenniferDuey/.rbenv/shims:/Users/JenniferDuey/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/JenniferDuey/.rbenv/shims
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.15.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/Users/JenniferDuey/Desktop/devconnect/node_modules/are-we-there-yet'
+
+npm manifest: 
+  {
+    "name": "devconnect",
+    "version": "1.0.0",
+    "description": "Military app",
+    "main": "server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Jen",
+    "license": "ISC",
+    "dependencies": {
+      "bcryptjs": "^2.4.3",
+      "config": "^3.2.2",
+      "express": "^4.17.1",
+      "express-validator": "^6.1.1",
+      "gravatar": "^1.8.0",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^5.6.8",
+      "request": "^2.88.0"
+    },
+    "devDependencies": {
+      "concurrently": "^4.1.1",
+      "nodemon": "^1.19.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
