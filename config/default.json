@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://Jen1234:Jen1234@militaryapp-gca11.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://Jen1234:Jen1234@militaryapp-gca11.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mySecretToken"
 }
