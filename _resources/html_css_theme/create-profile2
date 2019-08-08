@@ -1,0 +1,239 @@
+<div>
+    <nav className="navbar bg-dark">
+        <h1>
+            <a href="dashboard.html">
+                <i className="fas fa-flag-usa"> Patriot App</i>
+            </a>
+        </h1>
+        <ul>
+            <li><a href="profiles.html">Members</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li>
+                |
+                <a href="dashboard.html">
+                    <i className="fas fa-user"></i>
+                    <span className="hide-sm"> Dashboard</span></a>
+            </li>
+            <li><a href="login.html">
+                    <i className="fas fa-sign-out-alt"></i>
+                    <span className="hide-sm"> Logout</span></a>
+            </li>
+        </ul>
+    </nav>
+    <section className="container">
+            <h1 className="large text-primary">
+              Add Your Education
+            </h1>
+            <p className="lead">
+              <i className="fas fa-graduation-cap"></i> Add any school, bootcamp, etc that
+              you have attended
+            </p>
+            <small>* = required field</small>
+            <form className="form">
+              <div className="form-group">
+                <input
+                  type="text"
+                  placeholder="* School or Bootcamp"
+                  name="school"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  placeholder="* Degree or Certificate"
+                  name="degree"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <input type="text" placeholder="Field Of Study" name="fieldofstudy" />
+              </div>
+              <div className="form-group">
+                <h4>From Date</h4>
+                <input type="date" name="from" />
+              </div>
+              <div className="form-group">
+                <h4>To Date</h4>
+                <input type="date" name="to" />
+              </div>
+              <div className="form-group">
+                <p>
+                  <input type="checkbox" name="current" value="" /> Current School
+                </p>
+              </div>
+              <div className="form-group">
+                <textarea
+                  name="description"
+                  cols="30"
+Jennifers-Air:html-to-jsx JenniferDuey$ node example.js 
+<div>
+<nav className="navbar bg-dark">
+<h1>
+  <a href="dashboard.html">
+    <i className="fas fa-flag-usa"> Patriot App</i>
+  </a>
+</h1>
+<ul>
+  <li><a href="profiles.html">Members</a></li>
+  <li><a href="posts.html">Posts</a></li>
+  <li>
+    |
+    <a href="dashboard.html">
+      <i className="fas fa-user"></i>
+      <span className="hide-sm"> Dashboard</span></a>
+  </li>
+  <li><a href="login.html">
+      <i className="fas fa-sign-out-alt"></i>
+      <span className="hide-sm"> Logout</span></a>
+  </li>
+</ul>
+</nav>
+<section className="container">
+<h1 className="large text-primary">
+  Add any current or past deployments
+</h1>
+<p className="lead">
+  <i className="fas fa-code-branch"></i> Add any developer/programming
+  positions that you have had in the past
+</p>
+<small>* = required field</small>
+<form className="form">
+  <div className="form-group">
+    <input type="text" placeholder="* Role During Deployment" name="title" required />
+  </div>
+  <div className="form-group">
+    <input type="text" placeholder="* Unit (can be different than current Unit)" name="company" required />
+  </div>
+  <div className="form-group">
+    <input type="text" placeholder="Deployment Location" name="location" />
+  </div>
+  <div className="form-group">
+    <h4>From Date</h4>
+    <input type="date" name="from" />
+  </div>
+  <div className="form-group">
+    <h4>To Date</h4>
+    <input type="date" name="to" />
+  </div>
+  <div className="form-group">
+    <p><input type="checkbox" name="current" value="" /> Current Job</p>
+  </div>
+  <div className="form-group">
+    <textarea name="description" cols="30" rows="5" placeholder="Job Description"></textarea>
+  </div>
+  <input type="submit" className="btn btn-primary my-1" />
+  <a className="btn my-1" href="dashboard.html">Go Back</a>
+</form>
+</section>
+</div>
+Jennifers-Air:html-to-jsx JenniferDuey$ node example.js 
+<div>
+<nav className="navbar bg-dark">
+    <h1>
+      <a href="dashboard.html">
+        <i className="fas fa-flag-usa"> Patriot App</i>
+      </a>
+    </h1>
+    <ul>
+      <li><a href="profiles.html">Members</a></li>
+      <li><a href="posts.html">Posts</a></li>
+      <li>
+        |
+        <a href="dashboard.html">
+          <i className="fas fa-user"></i>
+          <span className="hide-sm"> Dashboard</span></a>
+      </li>
+      <li><a href="login.html">
+          <i className="fas fa-sign-out-alt"></i>
+          <span className="hide-sm"> Logout</span></a>
+      </li>
+    </ul>
+  </nav>
+  <section className="container">
+    <h1 className="large text-primary">
+      Create Your Profile
+    </h1>
+    <p className="lead">
+      <i className="fas fa-user"></i>
+      Let's get some information to make your profile stand out
+    </p>
+    <small>* = required fields</small>
+    <form className="form">
+      <div className="form-group">
+        <select name="status">
+          <option value="0">* What best describes your relationship</option>
+            <option value="Developer">Dependent Spouse</option>
+            <option value="Junior Developer">Dependent child</option>
+            <option value="Senior Developer">Girlfriend/Boyfriend</option>
+            <option value="Manager">Brother/Sister</option>
+            <option value="Student or Learning">Grandparent</option>
+            <option value="Instructor">Aunt/Uncle</option>
+            <option value="Intern">Neice/Nephew</option>
+            <option value="Other">Other</option>
+        </select>
+        <small className="form-text">Give us an idea of where you are at in your career</small>
+      </div>
+      <div className="form-group">
+        <input type="text" placeholder="Branch name="company" />
+        <small className="form-text">Enter the branch of service</small>
+      </div>
+      <div className="form-group">
+        <input type="text" placeholder="Unit" name="website" />
+        <small className="form-text">Enter the current Unit i.e. 3rd Infantry Division, 11th Marine Regiment etc.</small>
+      </div>
+      <div className="form-group">
+        <input type="text" placeholder="Your Location" name="location" />
+        <small className="form-text">City & state suggested (eg. Boston, MA)</small>
+      </div>
+      <div className="form-group">
+        <input type="text" placeholder="* Interests" name="skills" />
+        <small className="form-text">Please use comma separated values (eg.
+            Running, Watching movies, Swimming etc.)</small>
+      </div>
+      <div className="form-group">
+        <input type="text" placeholder="Github Username" name="githubusername" />
+        <small className="form-text">If you want your latest repos and a Github link, include your
+          username</small>
+      </div>
+      <div className="form-group">
+        <textarea placeholder="A short bio of yourself" name="bio"></textarea>
+        <small className="form-text">Tell us a little about yourself</small>
+      </div>
+
+      <div className="my-2">
+        <button type="button" className="btn btn-light">
+          Add Social Network Links
+        </button>
+        <span>Optional</span>
+      </div>
+
+      <div className="form-group social-input">
+        <i className="fab fa-twitter fa-2x"></i>
+        <input type="text" placeholder="Twitter URL" name="twitter" />
+      </div>
+
+      <div className="form-group social-input">
+        <i className="fab fa-facebook fa-2x"></i>
+        <input type="text" placeholder="Facebook URL" name="facebook" />
+      </div>
+
+      <div className="form-group social-input">
+        <i className="fab fa-youtube fa-2x"></i>
+        <input type="text" placeholder="YouTube URL" name="youtube" />
+      </div>
+
+      <div className="form-group social-input">
+        <i className="fab fa-linkedin fa-2x"></i>
+        <input type="text" placeholder="Linkedin URL" name="linkedin" />
+      </div>
+
+      <div className="form-group social-input">
+        <i className="fab fa-instagram fa-2x"></i>
+        <input type="text" placeholder="Instagram URL" name="instagram" />
+      </div>
+      <input type="submit" className="btn btn-primary my-1" />
+      <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
+    </form>
+  </section>
+</div>

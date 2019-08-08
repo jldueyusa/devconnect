@@ -24,10 +24,9 @@ const AddExperience = ({ addExperience, history }) => {
 
     return (
         <Fragment>
-            <h1 className='large text-primary'>Add An Experience</h1>
+            <h1 className='large text-primary'>Add A Deployment</h1>
             <p className='lead'>
-                <i className='fas fa-code-branch' /> Add any developer/programming positions
-                that you have had in the past
+                <i className='fas fa-code-branch' /> Enter deployment information
       </p>
             <small>* = required field</small>
             <form
@@ -40,7 +39,7 @@ const AddExperience = ({ addExperience, history }) => {
                 <div className='form-group'>
                     <input
                         type='text'
-                        placeholder='* Job Title'
+                        placeholder='* Role During Deployment'
                         name='title'
                         value={title}
                         onChange={e => onChange(e)}
@@ -50,7 +49,7 @@ const AddExperience = ({ addExperience, history }) => {
                 <div className='form-group'>
                     <input
                         type='text'
-                        placeholder='* Company'
+                        placeholder='* Branch (can be different than current branch'
                         name='company'
                         value={company}
                         onChange={e => onChange(e)}
@@ -60,7 +59,7 @@ const AddExperience = ({ addExperience, history }) => {
                 <div className='form-group'>
                     <input
                         type='text'
-                        placeholder='Location'
+                        placeholder='Deployment Location'
                         name='location'
                         value={location}
                         onChange={e => onChange(e)}
@@ -87,7 +86,7 @@ const AddExperience = ({ addExperience, history }) => {
                                 toggleDisabled(!toDateDisabled);
                             }}
                         />{' '}
-                        Current Job
+                        Currently Deployed
           </p>
                 </div>
                 <div className='form-group'>
@@ -105,7 +104,7 @@ const AddExperience = ({ addExperience, history }) => {
                         name='description'
                         cols='30'
                         rows='5'
-                        placeholder='Job Description'
+                        placeholder='Any outstanding experiences while on deployment you would like to highlight'
                         value={description}
                         onChange={e => onChange(e)}
                     />
