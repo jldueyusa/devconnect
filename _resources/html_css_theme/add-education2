@@ -22,18 +22,17 @@
     </nav>
     <section className="container">
             <h1 className="large text-primary">
-              Add Your Education
+              Add Credentials
             </h1>
             <p className="lead">
-              <i className="fas fa-graduation-cap"></i> Add any school, bootcamp, etc that
-              you have attended
+              <i className="fas fa-graduation-cap"></i> Certificate, Decoration, Medals, Awards
             </p>
             <small>* = required field</small>
             <form className="form">
               <div className="form-group">
                 <input
                   type="text"
-                  placeholder="* School or Bootcamp"
+                  placeholder="* Schools"
                   name="school"
                   required
                 />
@@ -41,13 +40,13 @@
               <div className="form-group">
                 <input
                   type="text"
-                  placeholder="* Degree or Certificate"
+                  placeholder="* Certificate, Decoration, Medals, Awards"
                   name="degree"
                   required
                 />
               </div>
               <div className="form-group">
-                <input type="text" placeholder="Field Of Study" name="fieldofstudy" />
+                <input type="text" placeholder="For What?" name="fieldofstudy" />
               </div>
               <div className="form-group">
                 <h4>From Date</h4>
@@ -59,7 +58,7 @@
               </div>
               <div className="form-group">
                 <p>
-                  <input type="checkbox" name="current" value="" /> Current School
+                  <input type="checkbox" name="current" value="" /> Which Unit and what Role at the time?
                 </p>
               </div>
               <div className="form-group">
