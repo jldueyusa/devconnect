@@ -46,7 +46,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <nav className='navbar bg-dark'>
             <h1>
                 <Link to='/'>
-                    <i className='fas fa-code' /> Patriot App
+                    <i className='fas fa-flag-usa' /> Patriot App
         </Link>
             </h1>
             {!loading && (
