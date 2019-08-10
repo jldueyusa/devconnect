@@ -63,13 +63,13 @@ const Createprofile = ({
                     <div className='form-group'>
                         <select name='status' value={status} onChange={e => onChange(e)}>
                             <option value="0">* What best describes your relationship</option>
-                            <option value="Developer">Dependent Spouse</option>
-                            <option value="Junior Developer">Dependent child</option>
-                            <option value="Senior Developer">Girlfriend/Boyfriend</option>
-                            <option value="Manager">Brother/Sister</option>
-                            <option value="Student or Learning">Grandparent</option>
-                            <option value="Instructor">Aunt/Uncle</option>
-                            <option value="Intern">Neice/Nephew</option>
+                            <option value="Dependent Spouse">Dependent Spouse</option>
+                            <option value="Dependent child">Dependent child</option>
+                            <option value="Girlfriend/Boyfriend">Girlfriend/Boyfriend</option>
+                            <option value="Brother/Sister">Brother/Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Aunt/Uncle">Aunt/Uncle</option>
+                            <option value="Neice/Nephew">Neice/Nephew</option>
                             <option value="Other">Other</option>
                         </select>
                         <small className='form-text'>
@@ -91,13 +91,13 @@ const Createprofile = ({
                     <div className='form-group'>
                         <input
                             type='text'
-                            placeholder='Unit'
+                            placeholder='Unit/Regiment/Command'
                             name='website'
                             value={website}
                             onChange={e => onChange(e)}
                         />
                         <small className='form-text'>
-                            Enter the current Unit i.e. 3rd Infantry Division, 11th Marine Regiment etc.
+                            Enter the current Unit/Regiment/Command i.e. 3rd Infantry Division, 11th Marine Regiment etc.
           </small>
                     </div>
                     <div className='form-group'>
@@ -121,8 +121,8 @@ const Createprofile = ({
                             onChange={e => onChange(e)}
                         />
                         <small className='form-text'>
-                        Please use comma separated values (eg.
-            Running, Watching movies, Swimming etc.)
+                            Please use comma separated values (eg.
+                Running, Watching movies, Swimming etc.)
           </small>
                     </div>
                     {/* <div className='form-group'>

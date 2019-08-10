@@ -26,7 +26,7 @@ const AddExperience = ({ addExperience, history }) => {
         <Fragment>
             <h1 className='large text-primary'>Add A Deployment</h1>
             <p className='lead'>
-                <i className='fas fa-code-branch' /> Enter deployment information
+                <i className='fa fa-globe' /> Enter deployment information
       </p>
             <small>* = required field</small>
             <form
@@ -49,7 +49,7 @@ const AddExperience = ({ addExperience, history }) => {
                 <div className='form-group'>
                     <input
                         type='text'
-                        placeholder='* Branch (can be different than current branch'
+                        placeholder='* Unit/Regiment/Command (can be different than current)'
                         name='company'
                         value={company}
                         onChange={e => onChange(e)}
