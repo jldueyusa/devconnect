@@ -6,7 +6,7 @@ import Spinner from '../layout/Spinner';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileExperience from './ProfileExperience';
-import ProfileEducation from './ProfileEducation';
+//import ProfileEducation from './ProfileEducation';
 // import ProfileGithub from './';
 import { getProfileById } from '../../actions/profile';
 
@@ -36,7 +36,7 @@ const Profile = ({
                                     Edit Profile
               </Link>
                             )}
-                        <div className='profile-grid my-1'>
+                        <div className='profile-grid my-2'>
                             <ProfileTop profile={profile} />
                             <ProfileAbout profile={profile} />
                             <div className='profile-exp bg-white p-2'>
