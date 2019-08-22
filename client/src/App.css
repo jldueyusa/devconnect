@@ -33,6 +33,9 @@ ul {
 img {
   width: 100%;
 }
+.profileImg{
+  width: 50px;
+}
 
 /* Utilities */
 .container {

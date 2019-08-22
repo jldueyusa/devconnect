@@ -1,8 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch,withRouter, Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
+
 
 const EditProfile = ({
     profile: { profile, loading },
@@ -17,6 +18,7 @@ const EditProfile = ({
         status: '',
         skills: '',
         bio: '',
+        photo: '',
         twitter: '',
         facebook: '',
         linkedin: '',
@@ -68,11 +70,40 @@ const EditProfile = ({
     };
 
     return (
+      
         <Fragment>
             <h1 className='large text-primary'>Edit Your Profile</h1>
             <p className='lead'>
                 <i className='fas fa-user' /> Add some changes to your profile
       </p>
+
+      {/* <CloudinaryContext
+                cloudName={this.props.cloudName}
+                uploadPreset={this.props.uploadPreset}
+            >
+                {/*This will render the image fetched from a remote HTTP URL using Cloudinary*/}
+                {/* <Image
+                 publicId="https://cloudinary.com/images/logo.png"
+            //         fetch-format="auto" */}
+            {/* //         quality="auto"
+            //     />
+            //     <BrowserRouter>
+            //         <Switch className="router">
+            //             <Route 
+            //                 exact
+            //                 path="/photos"
+            //                 component={PhotoListContainer}
+            //             />
+            //             <Route
+            //                 exact
+            //                 path="/photos/new"
+            //                 component={PhotosUploaderContainer}
+            //             />
+            //             <Redirect from="/" to="/photos" />
+            //         </Switch>
+            //     </BrowserRouter>
+            // </CloudinaryContext> */} 
+
             <small>* = required field</small>
             <form className='form' onSubmit={e => onSubmit(e)}>
                 <div className='form-group'>
@@ -230,6 +261,7 @@ const EditProfile = ({
                                 onChange={e => onChange(e)}
                             />
                         </div>
+                        
                     </Fragment>
                 )}
 
@@ -237,6 +269,7 @@ const EditProfile = ({
                 <Link className='btn btn-light my-1' to='/dashboard'>
                     Go Back
         </Link>
+        
             </form>
         </Fragment>
     );

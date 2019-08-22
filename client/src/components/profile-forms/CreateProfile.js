@@ -1,8 +1,10 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch, withRouter, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
+
+
 
 const Createprofile = ({
     createProfile,
@@ -23,6 +25,7 @@ const Createprofile = ({
         linkedin: "",
         youtube: "",
         instagram: "",
+        profilePhotoURL: "",
     });
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
     const {
@@ -49,6 +52,31 @@ const Createprofile = ({
         getCurrentProfile();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [getCurrentProfile]);
+
+    const checkUploadResult = result => {
+        if (result.event === "success") {
+  
+          const file = result.info.url; 
+          console.log("URL: ", file);
+          setFormData({ ...formData, "profilePhotoURL": file});
+        }
+      };
+
+    const showWidget = (e) => {
+        let widget = window.cloudinary.createUploadWidget(
+            {
+                cloudName: "juvia",
+                uploadPreset: "w67g1hja",
+                sources: ["local", "camera"]
+            },
+            (error, result) => {
+                console.log("inside showWidget: ", result.info.url)
+                checkUploadResult(result);
+            }
+        );
+        widget.open();
+    };
+
     return loading && profile === null ? (
         <Redirect to='/dashboard' />
     ) : (
@@ -215,6 +243,11 @@ const Createprofile = ({
                     <Link className='btn btn-light my-1' to='/dashboard'>
                         Go Back
         </Link>
+
+
+                    <img className="profileImg" alt="pic" src=""></img>
+                    <button onClick={e => showWidget(e)}>Upload picture</button>
+
                 </form>
             </Fragment>
         );
