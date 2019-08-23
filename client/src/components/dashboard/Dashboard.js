@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import angels from './angels.png'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
@@ -22,10 +23,13 @@ const Dashboard = ({
         <Spinner />
     ) : (
             <Fragment>
+                <div>
+                    <img style={{ height: 125, width: 675 }} src={angels} alt='angels' />;
                 <h1 className='large text-primary'>Dashboard</h1>
-                <p className='lead'>
-                    <i className='fas fa-user' /> Welcome {user && user.name}
-                </p>
+                    <p className='lead'>
+                        <i className='fas fa-user' /> Welcome {user && user.name}
+                    </p>
+                </div>
                 {profile !== null ? (
                     <Fragment>
                         <DashboardActions />
