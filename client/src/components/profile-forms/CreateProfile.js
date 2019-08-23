@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { BrowserRouter, Route, Link, Switch, withRouter, Redirect } from "react-router-dom";
+import longFlag from './longflag.png';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
@@ -18,7 +19,6 @@ const Createprofile = ({
         location: "",
         status: "",
         skills: "",
-        // githubusername: "",
         bio: "",
         twitter: "",
         facebook: "",
@@ -34,13 +34,13 @@ const Createprofile = ({
         location,
         status,
         skills,
-        // githubusername,
         bio,
         twitter,
         facebook,
         linkedin,
         youtube,
         instagram,
+        profilePhotoURL,
     } = formData;
     const onChange = e =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -55,6 +55,12 @@ const Createprofile = ({
 
     const checkUploadResult = result => {
         if (result.event === "success") {
+
+            const file = result.info.url;
+            console.log("URL: ", file);
+            setFormData({ ...formData, "profilePhotoURL": file });
+        }
+    };
   
           const file = result.info.url; 
           console.log("URL: ", file);
@@ -81,11 +87,15 @@ const Createprofile = ({
         <Redirect to='/dashboard' />
     ) : (
             <Fragment>
+                <div>
+                    <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
                 <h1 className='large text-primary'>Create Your Profile</h1>
-                <p className='lead'>
-                    <i className='fas fa-user' /> Enter your information below and connect
-        with other families in the military community
+                    <p className='lead'>
+                        <i className='fas fa-user' /> Enter your information below and connect
+            with other families in the military community
       </p>
+                </div>
+
                 <small>* = required field</small>
                 <form className='form' onSubmit={e => onSubmit(e)}>
                     <div className='form-group'>
@@ -93,7 +103,7 @@ const Createprofile = ({
                             <option value="0">* What best describes your relationship</option>
                             <option value="Dependent Spouse">Dependent Spouse</option>
                             <option value="Dependent child">Dependent child</option>
-                            <option value="Girlfriend/Boyfriend">Girlfriend/Boyfriend</option>
+                            <option value="Parent">Parent</option>
                             <option value="Brother/Sister">Brother/Sister</option>
                             <option value="Grandparent">Grandparent</option>
                             <option value="Aunt/Uncle">Aunt/Uncle</option>
@@ -153,19 +163,7 @@ const Createprofile = ({
                 Running, Watching movies, Swimming etc.)
           </small>
                     </div>
-                    {/* <div className='form-group'>
-                        <input
-                            type='text'
-                            placeholder='Github Username'
-                            name='githubusername'
-                            value={githubusername}
-                            onChange={e => onChange(e)}
-                        />
-                        <small className='form-text'>
-                            If you want your latest repos and a Github link, include your
-                            username
-          </small>
-                    </div> */}
+                
                     <div className='form-group'>
                         <textarea
                             placeholder='A short bio of yourself'
@@ -243,6 +241,15 @@ const Createprofile = ({
                     <Link className='btn btn-light my-1' to='/dashboard'>
                         Go Back
         </Link>
+
+                    <button onClick={e => showWidget(e)} 
+                    type='button'
+                    className='btn btn-primary'>
+                    <i className='fas fa-upload' />
+                     Upload picture
+                    
+                    
+                    </button>
 
 
                     <img className="profileImg" alt="pic" src=""></img>

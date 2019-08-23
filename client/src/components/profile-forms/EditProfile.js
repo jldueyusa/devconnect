@@ -1,4 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
+
+import { BrowserRouter, Route, Link, Switch, withRouter, Redirect } from "react-router-dom";
+import longFlag from './longflag.png';
 import { BrowserRouter, Route, Link, Switch,withRouter, Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -23,7 +26,8 @@ const EditProfile = ({
         facebook: '',
         linkedin: '',
         youtube: '',
-        instagram: ''
+        instagram: '',
+        profilePhotoURL: ""
     });
 
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
@@ -52,7 +56,6 @@ const EditProfile = ({
         location,
         status,
         skills,
-        //githubusername,
         bio,
         twitter,
         facebook,
@@ -69,41 +72,42 @@ const EditProfile = ({
         createProfile(formData, history, true);
     };
 
+    const checkUploadResult = result => {
+        if (result.event === "success") {
+
+            const file = result.info.url;
+            console.log("URL: ", file);
+            setFormData({ ...formData, "profilePhotoURL": file });
+        }
+    };
+
+    const showWidget = (e) => {
+        let widget = window.cloudinary.createUploadWidget(
+            {
+                cloudName: "juvia",
+                uploadPreset: "w67g1hja",
+                sources: ["local", "camera"]
+            },
+            (error, result) => {
+                console.log("inside showWidget: ", result.info.url)
+                checkUploadResult(result);
+            }
+        );
+        widget.open();
+    };
+
     return (
       
         <Fragment>
-            <h1 className='large text-primary'>Edit Your Profile</h1>
-            <p className='lead'>
-                <i className='fas fa-user' /> Add some changes to your profile
+            <div>
+                <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
+           <h1 className='large text-primary'>Edit Your Profile</h1>
+                <p className='lead'>
+                    <i className='fas fa-user' /> Add some changes to your profile
       </p>
 
-      {/* <CloudinaryContext
-                cloudName={this.props.cloudName}
-                uploadPreset={this.props.uploadPreset}
-            >
-                {/*This will render the image fetched from a remote HTTP URL using Cloudinary*/}
-                {/* <Image
-                 publicId="https://cloudinary.com/images/logo.png"
-            //         fetch-format="auto" */}
-            {/* //         quality="auto"
-            //     />
-            //     <BrowserRouter>
-            //         <Switch className="router">
-            //             <Route 
-            //                 exact
-            //                 path="/photos"
-            //                 component={PhotoListContainer}
-            //             />
-            //             <Route
-            //                 exact
-            //                 path="/photos/new"
-            //                 component={PhotosUploaderContainer}
-            //             />
-            //             <Redirect from="/" to="/photos" />
-            //         </Switch>
-            //     </BrowserRouter>
-            // </CloudinaryContext> */} 
-
+            </div>
+      
             <small>* = required field</small>
             <form className='form' onSubmit={e => onSubmit(e)}>
                 <div className='form-group'>
@@ -111,7 +115,7 @@ const EditProfile = ({
                         <option value="0">* What best describes your relationship</option>
                         <option value="Dependent Spouse">Dependent Spouse</option>
                         <option value="Dependent child">Dependent child</option>
-                        <option value="Girlfriend/Boyfriend">Girlfriend/Boyfriend</option>
+                        <option value="Parent">Parent</option>
                         <option value="Brother/Sister">Brother/Sister</option>
                         <option value="Grandparent">Grandparent</option>
                         <option value="Aunt/Uncle">Aunt/Uncle</option>
@@ -171,19 +175,7 @@ const EditProfile = ({
                 Running, Watching movies, Swimming etc.)
           </small>
                 </div>
-                {/* <div className='form-group'>
-                    <input
-                        type='text'
-                        placeholder='Github Username'
-                        name='githubusername'
-                        value={githubusername}
-                        onChange={e => onChange(e)}
-                    />
-                    <small className='form-text'>
-                        If you want your latest repos and a Github link, include your
-                        username
-          </small>
-                </div> */}
+              
                 <div className='form-group'>
                     <textarea
                         placeholder='A short bio of yourself'
@@ -261,7 +253,7 @@ const EditProfile = ({
                                 onChange={e => onChange(e)}
                             />
                         </div>
-                        
+
                     </Fragment>
                 )}
 
@@ -269,7 +261,16 @@ const EditProfile = ({
                 <Link className='btn btn-light my-1' to='/dashboard'>
                     Go Back
         </Link>
-        
+
+        <button onClick={e => showWidget(e)} 
+                    type='button'
+                    className='btn btn-primary'
+                >
+                    <i className='fas fa-upload' />
+                     Upload picture
+                    
+                    
+                    </button>
             </form>
         </Fragment>
     );
