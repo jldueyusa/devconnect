@@ -61,6 +61,12 @@ const Createprofile = ({
             setFormData({ ...formData, "profilePhotoURL": file });
         }
     };
+  
+          const file = result.info.url; 
+          console.log("URL: ", file);
+          setFormData({ ...formData, "profilePhotoURL": file});
+        }
+      };
 
     const showWidget = (e) => {
         let widget = window.cloudinary.createUploadWidget(
@@ -244,6 +250,10 @@ const Createprofile = ({
                     
                     
                     </button>
+
+
+                    <img className="profileImg" alt="pic" src=""></img>
+                    <button onClick={e => showWidget(e)}>Upload picture</button>
 
                 </form>
             </Fragment>
