@@ -24,6 +24,7 @@ const Dashboard = ({
     ) : (
             <Fragment>
                 <div>
+
                     <img style={{ height: 125, width: 750 }} src={angels} alt='angels' />;
                 <h1 className='large text-primary'>Dashboard</h1>
                     <p className='lead'>
