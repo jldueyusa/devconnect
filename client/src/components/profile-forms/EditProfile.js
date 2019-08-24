@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch, withRouter, Redirect } from "react-router-dom";
 import longFlag from './longflag.png';
+import { BrowserRouter, Route, Link, Switch,withRouter, Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
@@ -19,6 +20,7 @@ const EditProfile = ({
         status: '',
         skills: '',
         bio: '',
+        photo: '',
         twitter: '',
         facebook: '',
         linkedin: '',
@@ -94,7 +96,9 @@ const EditProfile = ({
     };
 
     return (
+      
         <Fragment>
+
              <div>
                 <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
            <h1 className='large text-primary'>Edit Your Profile</h1>
@@ -170,8 +174,7 @@ const EditProfile = ({
                         Please use comma separated values (eg.
                 Running, Watching movies, Swimming etc.)
           </small>
-                </div>
-               
+
                 <div className='form-group'>
                     <textarea
                         placeholder='A short bio of yourself'
@@ -249,6 +252,7 @@ const EditProfile = ({
                                 onChange={e => onChange(e)}
                             />
                         </div>
+
                     </Fragment>
                 )}
 
@@ -256,17 +260,14 @@ const EditProfile = ({
                 <Link className='btn btn-light my-1' to='/dashboard'>
                     Go Back
         </Link>
+
         <button onClick={e => showWidget(e)} 
                     type='button'
                     className='btn btn-primary'
                 >
                     <i className='fas fa-upload' />
                      Upload picture
-                    
-                    
                     </button>
-
-
             </form>
         </Fragment>
     );

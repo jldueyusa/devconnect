@@ -1,5 +1,4 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { Link, withRouter, Redirect } from "react-router-dom";
 import longFlag from './longflag.png';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -62,6 +61,7 @@ const Createprofile = ({
     };
 
     const showWidget = (e) => {
+        
         let widget = window.cloudinary.createUploadWidget(
             {
                 cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
@@ -80,6 +80,7 @@ const Createprofile = ({
         <Redirect to='/dashboard' />
     ) : (
             <Fragment>
+
              <div>
                     <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
                 <h1 className='large text-primary'>Create Your Profile</h1>
@@ -88,6 +89,7 @@ const Createprofile = ({
             with other families in the military community
       </p>
                 </div>
+
                 <small>* = required field</small>
                 <form className='form' onSubmit={e => onSubmit(e)}>
                     <div className='form-group'>
@@ -155,7 +157,7 @@ const Createprofile = ({
                 Running, Watching movies, Swimming etc.)
           </small>
                     </div>
-                    
+
                     <div className='form-group'>
                         <textarea
                             placeholder='A short bio of yourself'
@@ -234,13 +236,12 @@ const Createprofile = ({
                         Go Back
         </Link>
 
-        <button onClick={e => showWidget(e)} 
+
+                    <button onClick={e => showWidget(e)} 
                     type='button'
                     className='btn btn-primary'>
                     <i className='fas fa-upload' />
                      Upload picture
-                    
-                    
                     </button>
 
                 </form>
