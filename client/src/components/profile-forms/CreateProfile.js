@@ -4,6 +4,7 @@ import longFlag from './longflag.png';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
+require("dotenv").config();
 
 
 
@@ -57,16 +58,18 @@ const Createprofile = ({
         if (result.event === "success") {
 
             const file = result.info.url;
-            console.log("URL: ", file);
+            
             setFormData({ ...formData, "profilePhotoURL": file });
         }
     };
 
     const showWidget = (e) => {
+        
         let widget = window.cloudinary.createUploadWidget(
             {
-                cloudName: "juvia",
-                uploadPreset: "w67g1hja",
+        
+                cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+                uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
                 sources: ["local", "camera"]
             },
             (error, result) => {
