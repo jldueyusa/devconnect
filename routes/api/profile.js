@@ -8,6 +8,7 @@ const { check, validationResult } = require('express-validator');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
+const colors = require("colors")
 
 // @route    GET api/profile/me
 // @desc     Get current users profile
@@ -16,13 +17,14 @@ router.get('/me', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id }).populate(
             'user',
-            ['name', 'avatar']
+            ['name', 'profilePhotoURL']
         );
 
         if (!profile) {
+
             return res.status(400).json({ msg: 'There is no profile for this user' });
         }
-
+        console.log("PROFILE: ", profile)
         res.json(profile);
     } catch (err) {
         console.error(err.message);
@@ -64,7 +66,8 @@ router.post(
             facebook,
             twitter,
             instagram,
-            linkedin
+            linkedin,
+            profilePhotoURL,
         } = req.body;
 
         // Build profile object
@@ -75,6 +78,8 @@ router.post(
         if (location) profileFields.location = location;
         if (bio) profileFields.bio = bio;
         if (status) profileFields.status = status;
+        console.log("&&&&&&&&& Profile pic: ", profilePhotoURL)
+        if (profilePhotoURL) profileFields.profilePhotoURL = profilePhotoURL;
         //if (githubusername) profileFields.githubusername = githubusername;
         if (skills) {
             profileFields.skills = skills.split(',').map(skill => skill.trim());
@@ -95,6 +100,12 @@ router.post(
                 { $set: profileFields },
                 { new: true, upsert: true }
             );
+            User.findOneAndUpdate(
+                { _id: req.user.id },
+                { $set: { photoProfileURL: profilePhotoURL } }
+
+            ).then(function (data) { console.log("DATA: ", data) });
+
             res.json(profile);
         } catch (err) {
             console.error(err.message);
@@ -108,7 +119,7 @@ router.post(
 // @access   Public
 router.get('/', async (req, res) => {
     try {
-        const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+        const profiles = await Profile.find().populate('user', ['name', 'profilePhotoURL']);
         res.json(profiles);
     } catch (err) {
         console.error(err.message);
@@ -207,7 +218,12 @@ router.put(
             profile.experience.unshift(newExp);
 
             await profile.save();
+            console.log("----->".red, req.user.id, profilePhotoURL)
+            User.findOneAndUpdate(
+                { _id: req.user.id },
+                { $set: { photoProfileURL: profilePhotoURL } }
 
+            ).then(function (data) { console.log("DATA: ", data) });
             res.json(profile);
         } catch (err) {
             console.error(err.message);

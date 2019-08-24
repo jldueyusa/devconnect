@@ -31,12 +31,13 @@ const Experience = ({ experience, deleteExperience }) => {
 
     return (
         <Fragment>
+
             <h2 className="my-2">Deployment Credentials</h2>
             <table className="table">
                 <thead>
                     <tr>
                         <th>Unit/Regiment/Command</th>
-                        <th className="hide-sm">Rank</th>
+                        <th className="hide-sm">Unit Position</th>
                         <th className="hide-sm">Years</th>
                         <th />
                     </tr>

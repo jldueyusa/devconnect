@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import longFlag from './longflag.png';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import ProfileItem from './ProfileItem';
@@ -16,11 +17,14 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
                 <Spinner />
             ) : (
                     <Fragment>
+                        <div>
+                            <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
                         <h1 className='large text-primary'>Members</h1>
-                        <p className='lead'>
-                            <i className='fab fa-connectdevelop' /> Browse and connect with
-                            other military family and friends
+                            <p className='lead'>
+                                <i className='fab fa-connectdevelop' /> Browse and connect with
+                                other military family and friends
           </p>
+                        </div>
                         <div className='profiles'>
                             {profiles.length > 0 ? (
                                 profiles.map(profile => (

@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+import longFlag from './longflag.png';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
@@ -33,10 +34,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
+      <div>
+        <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
       <h1 className='large text-primary'>Sign Up</h1>
-      <p className='lead'>
-        <i className='fas fa-user' /> Create Your Account
+        <p className='lead'>
+          <i className='fas fa-user' /> Create Your Account
       </p>
+      </div>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
@@ -55,10 +59,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={email}
             onChange={e => onChange(e)}
           />
-          <small className='form-text'>
+          {/* <small className='form-text'>
             This site uses Gravatar so if you want a profile image, use a
             Gravatar email
-          </small>
+          </small> */}
         </div>
         <div className='form-group'>
           <input
