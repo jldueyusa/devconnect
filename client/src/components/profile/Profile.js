@@ -6,8 +6,6 @@ import Spinner from '../layout/Spinner';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileExperience from './ProfileExperience';
-//import ProfileEducation from './ProfileEducation';
-// import ProfileGithub from './';
 import { getProfileById } from '../../actions/profile';
 
 const Profile = ({

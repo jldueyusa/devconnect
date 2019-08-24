@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import longFlag from './longflag.png';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
@@ -24,10 +25,13 @@ const AddExperience = ({ addExperience, history }) => {
 
     return (
         <Fragment>
-            <h1 className='large text-primary'>Add A Deployment</h1>
-            <p className='lead'>
-                <i className='fa fa-globe' /> Enter deployment information
+            <div>
+                <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
+           <h1 className='large text-primary'>Add A Deployment</h1>
+                <p className='lead'>
+                    <i className='fa fa-globe' /> Enter deployment information
       </p>
+            </div>
             <small>* = required field</small>
             <form
                 className='form'

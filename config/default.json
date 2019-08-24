@@ -1,6 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://Jen1234:Jen1234@militaryapp-gca11.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "mySecretToken",
-  "githubClientId": "4500832ac6b517672ba9",
-  "githubSecret": "97f45031078793a2fd2abd48501ad6f0f8413d34"
+  "mongoURI": "mongodb+srv://jen1234:jen1234@cluster0-xcts6.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mySecretToken"
 }

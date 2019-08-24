@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import longFlag from './longflag.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
@@ -26,10 +27,13 @@ const Login = ({ login, isAuthenticated }) => {
 
     return (
         <Fragment>
+            <div>
+                <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
             <h1 className='large text-primary'>Sign In</h1>
-            <p className='lead'>
-                <i className='fas fa-user' /> Sign Into Your Account
+                <p className='lead'>
+                    <i className='fas fa-user' /> Sign Into Your Account
       </p>
+            </div>
             <form className='form' onSubmit={e => onSubmit(e)}>
                 <div className='form-group'>
                     <input
