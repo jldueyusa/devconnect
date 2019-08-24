@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Link, Switch,withRouter, Redirect } from "react-r
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
-
+require("dotenv").config();
 
 const EditProfile = ({
     profile: { profile, loading },
@@ -84,8 +84,8 @@ const EditProfile = ({
     const showWidget = (e) => {
         let widget = window.cloudinary.createUploadWidget(
             {
-                cloudName: "juvia",
-                uploadPreset: "w67g1hja",
+                cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+                uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
                 sources: ["local", "camera"]
             },
             (error, result) => {
