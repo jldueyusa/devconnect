@@ -21,9 +21,12 @@
     "express": "^4.17.1",
     "express-validator": "^6.1.1",
     "gravatar": "^1.8.0",
+    "i": "^0.3.6",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
     "lodash.template": "^4.5.0",
     "mongoose": "^5.6.8",
+    "npm": "^6.11.2",
     "path": "^0.12.7",
     "request": "^2.88.0"
   },

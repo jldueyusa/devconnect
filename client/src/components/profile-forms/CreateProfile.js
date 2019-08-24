@@ -1,12 +1,9 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { BrowserRouter, Route, Link, Switch, withRouter, Redirect } from "react-router-dom";
 import longFlag from './longflag.png';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
 require("dotenv").config();
-
-
 
 const Createprofile = ({
     createProfile,
@@ -58,22 +55,15 @@ const Createprofile = ({
         if (result.event === "success") {
 
             const file = result.info.url;
-            
+            console.log("URL: ", file);
             setFormData({ ...formData, "profilePhotoURL": file });
         }
     };
-  
-          const file = result.info.url; 
-          console.log("URL: ", file);
-          setFormData({ ...formData, "profilePhotoURL": file});
-        }
-      };
 
     const showWidget = (e) => {
         
         let widget = window.cloudinary.createUploadWidget(
             {
-        
                 cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
                 uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
                 sources: ["local", "camera"]
@@ -90,7 +80,8 @@ const Createprofile = ({
         <Redirect to='/dashboard' />
     ) : (
             <Fragment>
-                <div>
+
+             <div>
                     <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
                 <h1 className='large text-primary'>Create Your Profile</h1>
                     <p className='lead'>
@@ -166,7 +157,7 @@ const Createprofile = ({
                 Running, Watching movies, Swimming etc.)
           </small>
                     </div>
-                
+
                     <div className='form-group'>
                         <textarea
                             placeholder='A short bio of yourself'
@@ -245,18 +236,13 @@ const Createprofile = ({
                         Go Back
         </Link>
 
+
                     <button onClick={e => showWidget(e)} 
                     type='button'
                     className='btn btn-primary'>
                     <i className='fas fa-upload' />
                      Upload picture
-                    
-                    
                     </button>
-
-
-                    <img className="profileImg" alt="pic" src=""></img>
-                    <button onClick={e => showWidget(e)}>Upload picture</button>
 
                 </form>
             </Fragment>

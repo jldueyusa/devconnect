@@ -37,7 +37,7 @@ const Experience = ({ experience, deleteExperience }) => {
                 <thead>
                     <tr>
                         <th>Unit/Regiment/Command</th>
-                        <th className="hide-sm">Rank</th>
+                        <th className="hide-sm">Unit Position</th>
                         <th className="hide-sm">Years</th>
                         <th />
                     </tr>

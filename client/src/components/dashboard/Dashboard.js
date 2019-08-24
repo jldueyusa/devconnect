@@ -24,7 +24,8 @@ const Dashboard = ({
     ) : (
             <Fragment>
                 <div>
-                    <img style={{ height: 125, width: 675 }} src={angels} alt='angels' />;
+
+                    <img style={{ height: 125, width: 750 }} src={angels} alt='angels' />;
                 <h1 className='large text-primary'>Dashboard</h1>
                     <p className='lead'>
                         <i className='fas fa-user' /> Welcome {user && user.name}

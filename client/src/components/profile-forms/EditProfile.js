@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react';
-
 import { BrowserRouter, Route, Link, Switch, withRouter, Redirect } from "react-router-dom";
 import longFlag from './longflag.png';
 import { BrowserRouter, Route, Link, Switch,withRouter, Redirect } from "react-router-dom";
@@ -27,7 +26,7 @@ const EditProfile = ({
         linkedin: '',
         youtube: '',
         instagram: '',
-        profilePhotoURL: ""
+        profilePhotoURL: ''
     });
 
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
@@ -99,7 +98,8 @@ const EditProfile = ({
     return (
       
         <Fragment>
-            <div>
+
+             <div>
                 <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
            <h1 className='large text-primary'>Edit Your Profile</h1>
                 <p className='lead'>
@@ -174,8 +174,7 @@ const EditProfile = ({
                         Please use comma separated values (eg.
                 Running, Watching movies, Swimming etc.)
           </small>
-                </div>
-              
+
                 <div className='form-group'>
                     <textarea
                         placeholder='A short bio of yourself'
@@ -268,8 +267,6 @@ const EditProfile = ({
                 >
                     <i className='fas fa-upload' />
                      Upload picture
-                    
-                    
                     </button>
             </form>
         </Fragment>
