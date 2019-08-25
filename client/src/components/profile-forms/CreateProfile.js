@@ -23,7 +23,8 @@ const Createprofile = ({
         facebook: "",
         linkedin: "",
         youtube: "",
-        instagram: ""
+        profilePhotoURL: "",
+
     });
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
     const {
@@ -38,6 +39,7 @@ const Createprofile = ({
         linkedin,
         youtube,
         instagram,
+        profilePhotoURL,
     } = formData;
     const onChange = e =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -50,10 +52,38 @@ const Createprofile = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [getCurrentProfile]);
 
+
+    const checkUploadResult = result => {
+        if (result.event === "success") {
+
+            const file = result.info.url;
+            console.log("URL: ", file);
+            setFormData({ ...formData, "profilePhotoURL": file });
+        }
+    };
+
+    const showWidget = (e) => {
+        
+        let widget = window.cloudinary.createUploadWidget(
+            {
+                cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+                uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
+                sources: ["local", "camera"]
+            },
+            (error, result) => {
+                console.log("inside showWidget: ", result.info.url)
+                checkUploadResult(result);
+            }
+        );
+        widget.open();
+    };
+
+
     return loading && profile === null ? (
         <Redirect to='/dashboard' />
     ) : (
             <Fragment>
+
                 <div>
                     <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
                 <h1 className='large text-primary'>Create Your Profile</h1>
@@ -62,6 +92,7 @@ const Createprofile = ({
             with other families in the military community
       </p>
                 </div>
+
                 <small>* = required field</small>
                 <form className='form' onSubmit={e => onSubmit(e)}>
                     <div className='form-group'>
@@ -207,6 +238,15 @@ const Createprofile = ({
                     <Link className='btn btn-light my-1' to='/dashboard'>
                         Go Back
         </Link>
+
+
+
+                    <button onClick={e => showWidget(e)} 
+                    type='button'
+                    className='btn btn-primary'>
+                    <i className='fas fa-upload' />
+                     Upload picture
+                    </button>
 
                 </form>
             </Fragment>
