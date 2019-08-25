@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { BrowserRouter, Route, Link, Switch, withRouter, Redirect } from "react-router-dom";
+import { Link, withRouter } from 'react-router-dom';
 import longFlag from './longflag.png';
 import { BrowserRouter, Route, Link, Switch,withRouter, Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
@@ -98,7 +98,6 @@ const EditProfile = ({
     return (
       
         <Fragment>
-
              <div>
                 <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
            <h1 className='large text-primary'>Edit Your Profile</h1>
@@ -268,6 +267,7 @@ const EditProfile = ({
                     <i className='fas fa-upload' />
                      Upload picture
                     </button>
+
             </form>
         </Fragment>
     );

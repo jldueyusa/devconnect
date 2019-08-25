@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import longFlag from './longflag.png';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -22,8 +23,8 @@ const Createprofile = ({
         facebook: "",
         linkedin: "",
         youtube: "",
-        instagram: "",
         profilePhotoURL: "",
+
     });
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
     const {
@@ -51,6 +52,7 @@ const Createprofile = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [getCurrentProfile]);
 
+
     const checkUploadResult = result => {
         if (result.event === "success") {
 
@@ -76,12 +78,13 @@ const Createprofile = ({
         widget.open();
     };
 
+
     return loading && profile === null ? (
         <Redirect to='/dashboard' />
     ) : (
             <Fragment>
 
-             <div>
+                <div>
                     <img style={{ height: 150, width: 1050 }} src={longFlag} alt='alongFlag' />;
                 <h1 className='large text-primary'>Create Your Profile</h1>
                     <p className='lead'>
@@ -235,6 +238,7 @@ const Createprofile = ({
                     <Link className='btn btn-light my-1' to='/dashboard'>
                         Go Back
         </Link>
+
 
 
                     <button onClick={e => showWidget(e)} 
